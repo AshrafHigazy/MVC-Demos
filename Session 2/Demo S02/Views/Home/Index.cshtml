@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="mt-5 text-center">
+    <div class="mt-3 p-5 bg-primary text-white rounded">
+        <h1>🎬 Welcome to Higzo Movies</h1>
+        <a href="@Url.Action("AddMovieByComplexData", "Movies", new { ID = 10, Title = "Higzo" })" class="btn btn-success mt-3">
+            Add Movie
+        </a>
+    </div>
+</section>
