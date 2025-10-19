@@ -1,4 +1,6 @@
-﻿using MVC_Sec_Project.DAL.Migrations;
+﻿using MVC_Sec_Project.DAL.Configurations;
+//using MVC_Sec_Project.DAL.Migrations;
+using MVC_Sec_Project.DAL.Models.Employee;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -129,7 +129,7 @@ namespace MVC_Sec_Project.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Employee");
+                    b.ToTable("Employees");
                 });
 #pragma warning restore 612, 618
         }

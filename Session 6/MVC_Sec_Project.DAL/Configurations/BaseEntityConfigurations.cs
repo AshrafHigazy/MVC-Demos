@@ -11,8 +11,10 @@ namespace MVC_Sec_Project.DAL.Configurations
     {
       
 
-        public void Configure(EntityTypeBuilder<T> builder)
+        public  void Configure(EntityTypeBuilder<T> builder)
         {
+            
+
             //every time a new record is created, this column will be populated with the current date and time
             builder.Property(d => d.CreatedOn).HasDefaultValueSql("getdate()");
             //Every time the record is updated, this column will be updated with the current date and time

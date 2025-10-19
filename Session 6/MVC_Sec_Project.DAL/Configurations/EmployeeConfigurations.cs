@@ -10,8 +10,11 @@ namespace MVC_Sec_Project.DAL.Configurations
 {
     public class EmployeeConfigurations : BaseEntityConfigurations<Employee>,IEntityTypeConfiguration<Employee> 
     {
-        public new void Configure(EntityTypeBuilder<Employee> builder)
+        public new  void Configure(EntityTypeBuilder<Employee> builder)
         {
+            builder.Property(d => d.ID).UseIdentityColumn(1, 1);
+            builder.HasKey(d => d.ID);
+
             builder.Property(e => e.Name).HasColumnType("varchar(50)");
             builder.Property(e => e.Address).HasColumnType("varchar(150)");
             builder.Property(e => e.Salary).HasColumnType("decimal(10,2)");

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MVC_Sec_Project.DAL.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251016114102_Employee")]
-    partial class Employee
+    [Migration("20251016171046_2")]
+    partial class _2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -132,7 +132,7 @@ namespace MVC_Sec_Project.DAL.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Employee");
+                    b.ToTable("Employees");
                 });
 #pragma warning restore 612, 618
         }

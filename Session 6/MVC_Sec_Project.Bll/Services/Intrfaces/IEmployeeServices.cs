@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MVC_Sec_Project.Bll.Services.Intrfaces
 {
-    internal interface IEmployeeServices
+    public interface IEmployeeServices
     {
         public IEnumerable<EmployeeDto> GetAllEmployee();
         public EmployeeDetailsDto GetEmployeeById(int id);

@@ -25,6 +25,8 @@ namespace MVC_Sec_Project.PL
             builder.Services.AddScoped<IDepartmentServices, DepartmentServices>();
             builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             builder.Services.AddAutoMapper(M => M.AddProfile(new MappingProfiles()));
+            builder.Services.AddScoped<IEmployeeServices, EmployeeServices>();
+
 
             var app = builder.Build();
 
