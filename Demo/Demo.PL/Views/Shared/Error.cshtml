@@ -1,0 +1,44 @@
+﻿@using Demo.PL.ViewModels
+@model ErrorViewModel
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8 col-lg-6">
+        <div class="card border-danger shadow-sm">
+            <div class="card-header bg-danger text-white d-flex align-items-center">
+                <i class="fa-solid fa-triangle-exclamation me-2"></i>
+                <span>Oops! Something went wrong</span>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title text-danger mb-3">An error occurred while processing your request.</h4>
+
+                @if (Model.ShowRequestId)
+                {
+                    <p class="mb-2">
+                        <strong>Request ID:</strong>
+                        <code>@Model.RequestId</code>
+                    </p>
+                }
+
+                <p class="text-muted">
+                    If you are seeing this page in production, please contact the system administrator.
+                </p>
+
+                <hr />
+
+                <h6 class="fw-bold">Development Mode</h6>
+                <p class="small text-muted mb-1">
+                    Swapping to <strong>Development</strong> environment will display more detailed information
+                    about the error that occurred.
+                </p>
+                <p class="small text-muted mb-0">
+                    Set the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable to
+                    <strong>Development</strong> and restart the app to enable it locally.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

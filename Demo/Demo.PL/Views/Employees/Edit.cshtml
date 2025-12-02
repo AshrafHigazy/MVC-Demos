@@ -1,0 +1,38 @@
+﻿@model EmployeeUpdateRequest
+@inject IMapper Mapper
+
+@{
+    ViewData["Title"] = "Edit Employee";
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-lg-8">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1 class="h4 mb-0">Edit Employee</h1>
+            <a asp-controller="Employees" asp-action="Index" class="btn btn-outline-secondary btn-sm">
+                Back to list
+            </a>
+        </div>
+
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <form method="post" asp-controller="Employees" asp-action="Edit">
+                    <partial name="Partials/CreateEditPartial" model="Mapper.Map<EmployeeRequest>(Model)" />
+
+                    <div class="mt-4 d-flex justify-content-end gap-2">
+                        <button class="btn btn-success" type="submit">
+                            <i class="fa-solid fa-pen-to-square me-1"></i> Save changes
+                        </button>
+                        <a asp-controller="Employees" asp-action="Index" class="btn btn-outline-secondary">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Validation {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,40 @@
+﻿@model EmployeeRequest
+@{
+    ViewData["Title"] = "Create Employee";
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-lg-8">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h1 class="h4 mb-0">Create Employee</h1>
+            <a asp-controller="Employees" asp-action="Index" class="btn btn-outline-secondary btn-sm">
+                Back to list
+            </a>
+        </div>
+
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <form method="post"
+                      asp-controller="Employees"
+                      asp-action="Create"
+                      enctype="multipart/form-data">
+
+                    <partial name="Partials/CreateEditPartial" />
+
+                    <div class="mt-4 d-flex justify-content-end gap-2">
+                        <button class="btn btn-primary" type="submit">
+                            <i class="fa-solid fa-floppy-disk me-1"></i> Create
+                        </button>
+                        <a asp-controller="Employees" asp-action="Index" class="btn btn-outline-secondary">
+                            Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Validation {
+    <partial name="_ValidationScriptsPartial" />
+}

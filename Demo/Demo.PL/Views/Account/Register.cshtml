@@ -1,0 +1,73 @@
+﻿@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_AuthLayout";
+}
+
+<div class="main-agileinfo">
+    <div class="agileits-top">
+
+        <h2 class="mb-4 text-center">Create a new account</h2>
+
+        <form asp-action="Register" method="post" asp-controller="Account">
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+            <div class="mb-3">
+                <label asp-for="FirstName" class="form-label"></label>
+                <input asp-for="FirstName" class="form-control" placeholder="First name" />
+                <span asp-validation-for="FirstName" class="text-warning small d-block mt-1"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="LastName" class="form-label"></label>
+                <input asp-for="LastName" class="form-control" placeholder="Last name" />
+                <span asp-validation-for="LastName" class="text-warning small d-block mt-1"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="UserName" class="form-label"></label>
+                <input asp-for="UserName" class="form-control" placeholder="Username" />
+                <span asp-validation-for="UserName" class="text-warning small d-block mt-1"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" type="email" class="form-control" placeholder="Email address" />
+                <span asp-validation-for="Email" class="text-warning small d-block mt-1"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+                <span asp-validation-for="Password" class="text-warning small d-block mt-1"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ConfirmPassword" class="form-label"></label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm password" />
+                <span asp-validation-for="ConfirmPassword" class="text-warning small d-block mt-1"></span>
+            </div>
+
+            <div class="wthree-text mb-3">
+                <label class="anim d-flex align-items-center gap-2">
+                    <input asp-for="IsAgree" class="checkbox" />
+                    <span>I agree to the Terms &amp; Conditions</span>
+                </label>
+                <span asp-validation-for="IsAgree" class="text-warning small d-block mt-1"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 mt-2">
+                SIGN UP
+            </button>
+        </form>
+
+        <p class="mt-4 text-center">
+            Already have an account?
+            <a asp-action="Login" class="text-decoration-underline">Login now</a>
+        </p>
+    </div>
+</div>
+
+@section Validation {
+    <partial name="_ValidationScriptsPartial" />
+}

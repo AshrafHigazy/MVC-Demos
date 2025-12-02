@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Demo.PL</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+          integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Demo.PL.styles.css" asp-append-version="true" />
+</head>
+<body class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>Demo.PL</span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                        aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="mainNavbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="fa-solid fa-house"></i> Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                <i class="fa-solid fa-shield-halved"></i> Privacy
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Departments" asp-action="Index">
+                                <i class="fa-solid fa-sitemap"></i> Departments
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Employees" asp-action="Index">
+                                <i class="fa-solid fa-users"></i> Employees
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex gap-2">
+                        @if (!User.Identity.IsAuthenticated)
+                        {
+                            <a class="btn btn-outline-light btn-sm" asp-area="" asp-controller="Account" asp-action="Login">
+                                <i class="fa-solid fa-right-to-bracket"></i> Login
+                            </a>
+                            <a class="btn btn-primary btn-sm" asp-area="" asp-controller="Account" asp-action="Register">
+                                <i class="fa-solid fa-user-plus"></i> Register
+                            </a>
+                        }
+                        else
+                        {
+                            <span class="navbar-text text-light me-2">
+                                <i class="fa-solid fa-user-circle"></i>
+                                @User.Identity.Name
+                            </span>
+                            <a class="btn btn-outline-danger btn-sm" asp-area="" asp-controller="Account" asp-action="Logout">
+                                <i class="fa-solid fa-right-from-bracket"></i> Logout
+                            </a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container py-4">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer mt-auto py-3 bg-white">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span class="text-muted">
+                &copy; 2025 - Demo.PL
+            </span>
+            <a class="text-decoration-none" asp-area="" asp-controller="Home" asp-action="Privacy">
+                Privacy
+            </a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Validation", required: false)
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
